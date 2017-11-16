@@ -1,4 +1,18 @@
 
+# Prototype for Angular Elements web part
+
+This is an experimental prototype for using Angular Elements in the context of SharePoint Framework web part.
+
+> Stay tuned for more updates. In meanwhile, feel free to provide feedback using the Issue list in this repository. We are highly interested on your feedback. 
+
+## Building the code
+
+```bash
+git clone the repo
+npm i
+npm i -g gulp
+gulp
+
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
