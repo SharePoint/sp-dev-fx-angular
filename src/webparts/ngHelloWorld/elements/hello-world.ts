@@ -1,7 +1,6 @@
 import { Component, NgModule, Input, ViewEncapsulation } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { CommonModule } from '@angular/common';
-import { WebPartContext } from '@microsoft/sp-webpart-base';
 
 @Component({
   selector: 'hello-world',
@@ -14,7 +13,6 @@ import { WebPartContext } from '@microsoft/sp-webpart-base';
 })
 export class HelloWorld {
   @Input() name = 'Angular'
-  @Input() context: WebPartContext;
 }
 
 @NgModule({

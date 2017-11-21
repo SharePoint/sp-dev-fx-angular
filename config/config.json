@@ -23,10 +23,5 @@
       ]
     }
   },
-  "externals": {
-    "webcomponentpolyfills": {
-      "path": "./ext/webcomponents-lite.js",
-      "globalName": "polyfills"
-    }
-  }
+  "externals": {}
 }
