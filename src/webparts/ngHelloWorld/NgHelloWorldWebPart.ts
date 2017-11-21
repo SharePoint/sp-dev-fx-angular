@@ -1,3 +1,4 @@
+import 'webcomponentpolyfills'
 import './elements'
 import { HelloWorld } from './elements/hello-world'
 
@@ -15,7 +16,22 @@ export default class NgHelloWorldWebPartWebPart extends BaseClientSideWebPart<He
   }
   ngElement: HTMLElement;
   public render(): void {
-    this.domElement.innerHTML = `<insert element here>`
+    const HelloWorldEl = customElements.get('hello-world');
+    if(!this.renderedOnce){      
+      const element = new HelloWorldEl();
+      element.context = this.context;
+      element.name = this.properties.name;
+      this.domElement.appendChild(element);
+      this.ngElement = element;
+    }
+    else{      
+      this.ngElement.remove();
+      const element = new HelloWorldEl();
+      element.context = this.context;
+      element.name = this.properties.name;
+      this.domElement.appendChild(element);
+      this.ngElement = element;
+    }
   }
 
   protected get dataVersion(): Version {
