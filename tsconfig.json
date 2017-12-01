@@ -6,6 +6,7 @@
     "jsx": "react",
     "declaration": true,
     "sourceMap": true,
+    "skipLibCheck": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "types": [

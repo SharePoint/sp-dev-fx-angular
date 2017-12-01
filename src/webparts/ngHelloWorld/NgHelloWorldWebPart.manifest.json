@@ -20,7 +20,7 @@
     "description": { "default": "Hello World with Angular Elements" },
     "officeFabricIconFontName": "Page",
     "properties": {
-      "description": "NgHelloWorld"
+      "description": "Hello World"
     }
   }]
 }

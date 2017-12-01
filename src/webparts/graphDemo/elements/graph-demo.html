@@ -2,7 +2,12 @@
   <div class="container">
     <div class="row">
       <div class="column">
-        <span class="title">I AM THE ONE WHO GRAPHS</span>
+        <span class="title">Welcome to SharePoint!</span>
+        <ul>
+          <li *ngFor="let group of groups | async">
+            {{ group.displayName }}
+          </li>
+        </ul>
       </div>
     </div>
   </div>

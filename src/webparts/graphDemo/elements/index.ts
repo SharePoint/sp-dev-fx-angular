@@ -8,6 +8,5 @@ import { GraphDemoModuleNgFactory } from './graph-demo.ngfactory'
 
 registerAsCustomElements(
   [ GraphDemo ],
-  () => platformBrowser().bootstrapModuleFactory(GraphDemoModuleNgFactory)
-)
+  () => platformBrowser().bootstrapModuleFactory(GraphDemoModuleNgFactory))
 .catch(err => console.log(err));
