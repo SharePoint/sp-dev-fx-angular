@@ -7,10 +7,10 @@ This is an experimental prototype for using Angular Elements in the context of S
 > Stay tuned for more updates. In meanwhile, feel free to provide feedback using the Issue list in this repository. We are highly interested on your feedback. 
 
 ### Hello World Demo
-![Screeshot of the Hello World Demo](./assets/hello-world.png)
+![Screeshot of the Hello World Demo](./assets/angular-hello-world.gif)
 
 ### Graph Demo
-![Screeshot of the Group Demo](./assets/group-demo.png)
+![Screeshot of the Group Demo](./assets/angular-graph-demo.gif)
 
 ## Used SharePoint Framework Version 
 ![drop](https://img.shields.io/badge/drop-ga-green.svg)
