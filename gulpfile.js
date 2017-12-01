@@ -4,15 +4,26 @@ const gulp = require('gulp');
 const path = require('path');
 const build = require('@microsoft/sp-build-web');
 const merge = require('webpack-merge');
+const webpack = require('webpack');
 const {AngularCompilerPlugin} = require('@ngtools/webpack');
-
-
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 //TODO: factor this out into an npm package
 build.configureWebpack.mergeConfig({
   additionalConfiguration: (generatedConfiguration) => {
-    console.log(generatedConfiguration)
-    console.log('generated config', build.getConfig());
+
+    // Ensures the production build can be built using UglifyJs
+    if(build.configureWebpack.buildConfig.production) {
+      generatedConfiguration.plugins.forEach((plugin) => {
+        if (plugin instanceof webpack.optimize.UglifyJsPlugin) {
+          var index = generatedConfiguration.plugins.indexOf(plugin);
+          generatedConfiguration.plugins.splice(index, 1);
+        }
+      });
+
+      generatedConfiguration.plugins.push(new UglifyJSPlugin());
+    }
+
     Object.assign(generatedConfiguration.resolve, {extensions: ['.ts', '.js']});
     generatedConfiguration.module.rules = [
       { test: /\.ts$/, loader: '@ngtools/webpack' },

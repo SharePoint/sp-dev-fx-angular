@@ -8,7 +8,7 @@ export interface IOffice365Group {
   displayName: string;
   mail: string;
   description: string;
- }
+}
 
 @Component({
   selector: 'ms-graph-demo',
@@ -19,18 +19,19 @@ export interface IOffice365Group {
 export class GraphDemo {
   @Input() context: WebPartContext;
 
-  groups:Promise<IOffice365Group[]>
+  groups:Promise<IOffice365Group[]>;
 
   ngOnInit(){
     if(!this.context){
-      console.error('you forgot to set the context!');
+      console.error('Please provide the context!');
+      return;
     }
+
     this.groups = this.context.graphHttpClient.get(`v1.0/groups?$orderby=displayName`, GraphHttpClient.configurations.v1)
       .then(res => res.json())
       .then(res => res.value)
       .catch(err => console.log(err));
   }
-
 }
 
 @NgModule({

@@ -1,6 +1,6 @@
 import './elements'
-import { NgElement } from '@angular/elements'
 import { GraphDemo } from './elements/graph-demo'
+
 import { Version } from '@microsoft/sp-core-library';
 import {
   BaseClientSideWebPart,
@@ -8,18 +8,20 @@ import {
   PropertyPaneTextField
 } from '@microsoft/sp-webpart-base';
 
-
 export default class GraphDemoWebPartWebPart extends BaseClientSideWebPart<GraphDemo> {
   graphElement: HTMLElement;
 
   public render(): void {
-    if(!this.renderedOnce){
-      const GraphDemoEl = customElements.get('ms-graph-demo');
-      const element = new GraphDemoEl();
-      element.context = this.context;
-      this.domElement.appendChild(element);
-      this.graphElement = element;
+    let ngElement = this.domElement.getElementsByTagName('ms-graph-demo')[0]
+
+    if(ngElement) {
+      this.domElement.removeChild(ngElement);
     }
+
+    const ElementHelloWorld = customElements.get('ms-graph-demo');
+    const element = new ElementHelloWorld();
+    element.context = this.context;
+    this.domElement.appendChild(element);
   }
 
   protected get dataVersion(): Version {

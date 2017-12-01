@@ -6,5 +6,7 @@ import { platformBrowser } from '@angular/platform-browser'
 import { HelloWorld, HelloWorldModule } from './hello-world'
 import { HelloWorldModuleNgFactory } from './hello-world.ngfactory'
 
-registerAsCustomElements([HelloWorld], () => platformBrowser().bootstrapModuleFactory(HelloWorldModuleNgFactory, {ngZone: 'noop'}))
+registerAsCustomElements(
+  [HelloWorld],
+  () => platformBrowser().bootstrapModuleFactory(HelloWorldModuleNgFactory))
   .catch(err => console.log(err));

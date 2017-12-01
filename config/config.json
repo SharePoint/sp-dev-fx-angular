@@ -2,23 +2,19 @@
   "$schema": "https://dev.office.com/json-schemas/spfx-build/config.2.0.schema.json",
   "version": "2.0",
   "bundles": {
-    "ng-hello-world-web-part": {
+    "sp-dev-fx-angular": {
       "components": [
         {
           "entrypoint": "./src/webparts/ngHelloWorld/NgHelloWorldWebPart.ts",
           "manifest": "./src/webparts/ngHelloWorld/NgHelloWorldWebPart.manifest.json",
           "entryModule": "./src/webparts/ngHelloWorld/elements/hello-world",
           "entryModuleName": "HelloWorldModule"
-        }
-      ]
-    },
-    "graph-demo-web-part": {
-      "components": [
+        },
         {
           "entrypoint": "./src/webparts/graphDemo/GraphDemoWebPart.ts",
           "manifest": "./src/webparts/graphDemo/GraphDemoWebPart.manifest.json",
-          "entryModule": "./src/webparts/graphDemo/elements/hello-world",
-          "entryModuleName": "HelloWorldModule"
+          "entryModule": "./src/webparts/graphDemo/elements/graph-demo",
+          "entryModuleName": "GraphDemoModule"
         }
       ]
     }

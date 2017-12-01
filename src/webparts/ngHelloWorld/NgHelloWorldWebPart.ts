@@ -2,7 +2,6 @@ import './elements'
 import { HelloWorld } from './elements/hello-world'
 
 import { Version } from '@microsoft/sp-core-library';
-
 import {
   BaseClientSideWebPart,
   IPropertyPaneConfiguration,
@@ -13,9 +12,18 @@ export default class NgHelloWorldWebPartWebPart extends BaseClientSideWebPart<He
   constructor(){
     super();
   }
-  ngElement: HTMLElement;
+
   public render(): void {
-    this.domElement.innerHTML = `<insert element here>`
+    let ngElement = this.domElement.getElementsByTagName('hello-world')[0]
+
+    if(ngElement) {
+      this.domElement.removeChild(ngElement);
+    }
+
+    const ElementHelloWorld = customElements.get('hello-world');
+    const element = new ElementHelloWorld();
+    element.description = this.properties.description;
+    this.domElement.appendChild(element);
   }
 
   protected get dataVersion(): Version {
@@ -27,15 +35,14 @@ export default class NgHelloWorldWebPartWebPart extends BaseClientSideWebPart<He
       pages: [
         {
           header: {
-            description: 'Description'
+            description: 'Hello World with Angular Elements Configuration'
           },
           groups: [
             {
               groupName: "Options",
               groupFields: [
-                PropertyPaneTextField('name', {
-                  label: "Username",
-                  value: "Rob"
+                PropertyPaneTextField('description', {
+                  label: "Description"
                 })
               ]
             }
